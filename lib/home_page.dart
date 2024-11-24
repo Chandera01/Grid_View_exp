@@ -8,66 +8,101 @@ class HomePage extends StatelessWidget{
       appBar: AppBar(
         title: Text("Grid"),
       ),
-      body: Column(
+      body: Stack(
         children: [
-          // GridViewExtent
-          Expanded(
-            child: GridView.extent(maxCrossAxisExtent: 100,
-              childAspectRatio: 9/16,
-              children: [
-                Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridView.builder(
+              itemCount: 10,
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 250,
+                    mainAxisSpacing: 11,
+                  crossAxisSpacing: 11,
+                  childAspectRatio: 9/16,
                 ),
-              ],
+                itemBuilder: (_,index){
+                  return Container(
+                    color: Colors.blue,
+                  );
+                }),
+          ),
+          Positioned(
+            bottom: 21,
+            left: 21,
+            child: Container(
+              width: 60,
+              height: 50,
+              color: Colors.grey,
             ),
-          ),
-
-          // GridViewCount
-          Expanded(
-            child: GridView.count(crossAxisCount: 2,
-              childAspectRatio: 6/6,
-              mainAxisSpacing: 11,
-              crossAxisSpacing: 11,
-              children: [
-                Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),Container(
-                  color: Colors.blue,
-                  margin: EdgeInsets.all(10),
-                ),
-              ],),
-          ),
+          )
         ],
       ),
     );
   }
 }
+
+
+
+// GRIDVIEW
+/*Gridview.count,Gridview.extent*/
+  /*Column(
+    children = [
+      // GridViewExtent
+      Expanded(
+        child: GridView.extent(maxCrossAxisExtent: 100,
+        childAspectRatio: 9/16,
+        children: [
+      Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+       color: Colors.blue,
+       margin: EdgeInsets.all(10),
+      ),Container(
+       color: Colors.blue,
+       margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+         ),
+      ],
+    ),
+  ),
+      
+      // GridViewCount
+      Expanded(
+        child: GridView.count(crossAxisCount: 2,
+        childAspectRatio: 6/6,
+        mainAxisSpacing: 11,
+        crossAxisSpacing: 11,
+      children: [
+      Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+      ),Container(
+        color: Colors.blue,
+        margin: EdgeInsets.all(10),
+         ),
+      ],),
+     ),
+    ],
+  ),
+*/
